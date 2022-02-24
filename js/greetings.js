@@ -1,10 +1,10 @@
-const loginForm = document.querySelector('#login-form');
-const loginInput = document.querySelector('#login-form input');
-const greeting = document.querySelector('#greeting');
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+const todoForm = document.querySelector("#todo-form");
 
-const HIDDEN_CLASSNAME = 'hidden';
-const USERNAME_KEY = 'username';
-
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
 const onLoginSubmit = (event) => {
   event.preventDefault(); // 브라우저의 기본동작을 막음
@@ -15,15 +15,16 @@ const onLoginSubmit = (event) => {
 };
 
 const paintGreetings = (username) => {
-  greeting.innerText = `hello ${username}!`;
+  greeting.innerText = `Hello, ${username}!`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
+  todoForm.classList.remove(HIDDEN_CLASSNAME);
 };
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-if(savedUsername === null) {
+if (savedUsername === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
-  loginForm.addEventListener('submit', onLoginSubmit);
+  loginForm.addEventListener("submit", onLoginSubmit);
 } else {
   paintGreetings(savedUsername);
 }

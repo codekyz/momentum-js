@@ -1,8 +1,8 @@
-const quote = document.querySelector('#quote span:first-child');
-const author = document.querySelector('#quote span:last-child');
+const quote = document.querySelector("#quote p:first-child");
+const author = document.querySelector("#quote p:last-child");
 
 // random quote api
-const updateQuote = async() => {
+const updateQuote = async () => {
   const response = await fetch("https://api.quotable.io/random");
   const data = await response.json();
   if (response.ok) {
@@ -12,7 +12,7 @@ const updateQuote = async() => {
     quote.textContent = "An error occured";
     console.log(data);
   }
-}
+};
 
 updateQuote();
 
